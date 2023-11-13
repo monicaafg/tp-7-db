@@ -6,7 +6,7 @@ pipeline {
             steps {
                 echo 'Building..'
                 sh "cd /var/lib/jenkins/workspace/pipeline-bd"
-                sh "pwd"
+                sh "docker build -t db-mysql:1.1.0 ."
             }
         }
         stage('Test') {
