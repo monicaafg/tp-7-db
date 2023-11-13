@@ -2,6 +2,11 @@ pipeline {
   agent any
 
   stages {
+    stage('Clonar Repositorio') {
+      steps {
+        checkout scm
+      }
+    }
     stage {
       stage('Docker build') {
         steps {
