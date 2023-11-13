@@ -2,10 +2,10 @@ pipeline {
   agent any
 
   stages {
-    stage('Docker build') {
+    stage('Construir Imagen Docker') {
       steps {
-        scripts{
-          sh "docker build -t monicaafg/ejemplo-mysql:1.1.0- ${BUILD_ID} ."
+        script {
+          docker.build("monicaafg/ejemplo-mysql:${env.BUILD_NUMBER}")
         }
       }
     }
