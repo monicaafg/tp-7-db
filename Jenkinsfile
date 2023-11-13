@@ -19,7 +19,7 @@ pipeline {
                 echo 'Testing..'
                 echo 'Corriendo el contenedor...'
                 sh "docker run -d -p 33060:3306 --name ${env.DB_CONTAINER} --mount src=mysql-data,dst=/var/lib/mysql ${env.DB_IMAGE}:${env.BUILD_NUMBER}"
-                sh "sleep 60'
+                sh "sleep 60"
                 sh "docker ps"
                 //sh "docker exec -it base-mysql mysql -p"
                 docker.stop(DB_CONTAINER)
