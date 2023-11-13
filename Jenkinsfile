@@ -21,7 +21,7 @@ pipeline {
                 sh "docker run -d -p 33060:3306 --name ${env.DB_CONTAINER} --mount src=mysql-data,dst=/var/lib/mysql ${env.DB_IMAGE}:${env.BUILD_NUMBER}"
                 sh "docker ps"
                 //sh "docker exec -it ${env.DB_CONTAINER} mysql -p"
-                //sh "sleep 60"
+                sh "sleep 10"
                 sh "docker stop ${env.DB_CONTAINER}"
                 sh "docker rm ${env.DB_CONTAINER}             
             }
