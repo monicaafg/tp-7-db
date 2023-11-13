@@ -3,9 +3,9 @@ pipeline {
 
   stages {
     stage {
-      stage('Clonar Repositorio') {
+      stage('Docker build') {
         steps {
-          checkout scm
+          sh "docker build -t db-mysql:1.1.0 ."
         }
       }
     }
