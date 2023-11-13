@@ -5,6 +5,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                sh "cd /var/lib/jenkins/workspace/pipeline-bd"
+                sh "pwd"
             }
         }
         stage('Test') {
