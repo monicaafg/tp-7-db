@@ -22,8 +22,8 @@ pipeline {
                 sh "sleep 60"
                 sh "docker ps"
                 //sh "docker exec -it base-mysql mysql -p"
-                sh "docker stop ${env.DB_CONTAINER}"
-                sh "docker rm ${env.DB_CONTAINER}             
+                //sh "docker stop ${env.DB_CONTAINER}"
+                //sh "docker rm ${env.DB_CONTAINER}             
             }
         }
         stage('Publicar') {
