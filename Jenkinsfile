@@ -4,9 +4,7 @@ pipeline {
   stages {
     stage('Construir Imagen Docker') {
       steps {
-        script {
-          docker.buildx("monicaafg/ejemplo-mysql:${env.BUILD_NUMBER}")
-        }
+        sh "docker build -t monicaafg/ejemplo-mysql:${env.BUILD_NUMBER} ."
       }
     }
   }
