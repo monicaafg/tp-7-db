@@ -2,14 +2,9 @@ pipeline {
   agent any
 
   stages {
-    stage('Clonar Repositorio') {
+    stage('Docker build') {
       steps {
-        checkout scm
-      }
-    }
-    stage {
-      stage('Docker build') {
-        steps {
+        scripts{
           sh "docker build -t db-mysql:1.1.0 ."
         }
       }
