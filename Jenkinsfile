@@ -6,7 +6,7 @@ pipeline {
             steps {
                 echo 'Building..'
                 sh "cd /var/lib/jenkins/workspace/pipeline-bd"
-                sh "docker build -t db-mysql:1.1.0 ."
+                sh "docker build -t monicaafg/ejemplo-mysql:${BUILDER_ID} ."
             }
         }
         stage('Test') {
@@ -14,9 +14,9 @@ pipeline {
                 echo 'Testing..'
             }
         }
-        stage('Deploy') {
+        stage('Publicar') {
             steps {
-                echo 'Deploying....'
+                echo 'Subir a DockerHub....'
             }
         }
     }
