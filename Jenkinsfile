@@ -29,7 +29,7 @@ pipeline {
         stage('Publicar') {
             steps {
                 echo 'Subir a DockerHub....'
-                sh "docker push monicaafg/ejemplo-mysql:${env.BUILD_NUMBER}"
+                //sh "docker push monicaafg/ejemplo-mysql:${env.BUILD_NUMBER}"
             }
         }
     }
