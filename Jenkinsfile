@@ -19,7 +19,7 @@ pipeline {
                 echo 'Testing..'
                 echo 'Corriendo el contenedor...'
                 script {
-                    def existingContainer = sh(script: "docker ps -q -f name=${env.DB_CONTAINER}", returnStatus: true, returnStdout: true)
+                    def existingContainer = sh(script: "docker ps -a name=${env.DB_CONTAINER}", returnStatus: true, returnStdout: true)
                     if (existingContainer == 0) {
                         sh "docker run -d -p 33060:3306 --name ${env.DB_CONTAINER} --mount src=mysql-data,dst=/var/lib/mysql ${env.DB_IMAGE}:${env.BUILD_NUMBER}"
                     } else {
