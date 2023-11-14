@@ -39,6 +39,10 @@ pipeline {
         stage('Publicar') {
             steps {
                 echo 'Subir a DockerHub....'
+                withCredentials([usernamePassword(credentialsId: 'DockerHub-credentials', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
+                    sh "docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD"
+                    sh "docker push monicaafg/ejemplo-mysql:${env.BUILD_NUMBER}"    
+                }
                 //sh "docker push monicaafg/ejemplo-mysql:${env.BUILD_NUMBER}"
             }
         }
