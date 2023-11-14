@@ -22,7 +22,7 @@ pipeline {
                 sh "docker ps"
                 //sh "docker exec -it ${env.DB_CONTAINER} mysql -p"
                 sh "sleep 10"
-                sh "docker stop ${env.DB_CONTAINER}"
+                //sh "docker stop ${env.DB_CONTAINER}"
                 //sh "docker rm ${env.DB_CONTAINER}"             
             }
         }
